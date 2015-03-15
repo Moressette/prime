@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+#define MAXN 2000001
+int a[MAXN];
+bool prime(int n)
+{
+    int i,j;
+    for(i=2;i<MAXN;i++)
+    {
+        if(!a[i])
+        {
+            for(j=i+i;j<MAXN;j+=i)
+                a[j]=1;
+        }
+    }
+    if(!a[n])
+        return true;
+    else
+        return false;
+}
+int main()
+{
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        if(prime(n))
+            printf("YES\n");
+        else
+            printf("NO\n");
+    }
+}
